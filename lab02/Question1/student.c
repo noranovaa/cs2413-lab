@@ -23,37 +23,33 @@
 // How to run tests (from the folder containing the Makefile):
 //   make run1
 // ------------------------------------------------------------
-
 #include "Student.h"
 #include <stdbool.h>
-#include <stddef.h>  // size_t
-#include <string.h>  // strlen
+#include <stddef.h>
+#include <string.h>
 
 bool isValid(const char *s) {
-    // TODO: Implement using a stack.
-    //
-    // Recommended approach:
-    // - Use a char array as a stack to store opening brackets.
-    // - Scan the string from left to right:
-    //   - If you see an opening bracket, push it.
-    //   - If you see a closing bracket:
-    //       * stack must not be empty
-    //       * top of stack must match the closing bracket type
-    //       * then pop
-    // - At the end, stack must be empty.
-    //
-    // Helpful matching pairs:
-    //   ')' matches '('
-    //   ']' matches '['
-    //   '}' matches '{'
-    //
-    // Corner cases:
-    // - s == NULL -> return false
-    // - odd length strings can’t be valid 
-    //
-    // Note:
-    // - Input contains only bracket characters, per the prompt.
+    if (s == NULL) return false;
 
-    (void)s; // remove after implementing
-    return false; // placeholder
+    int len = strlen(s);
+    if (len % 2 != 0) return false;
+
+    char stack[len];
+    int top = 0;
+
+    for (int i = 0; i < len; i++) {
+        char c = s[i];
+
+        if (c == '(' || c == '[' || c == '{') {
+            stack[top++] = c;
+        } else {
+            if (top == 0) return false;
+            char open = stack[--top];
+            if (c == ')' && open != '(') return false;
+            if (c == ']' && open != '[') return false;
+            if (c == '}' && open != '{') return false;
+        }
+    }
+
+    return top == 0;
 }
