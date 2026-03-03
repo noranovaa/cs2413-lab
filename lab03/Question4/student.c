@@ -17,8 +17,8 @@ int middleNodeValue(struct ListNode *head) {
     struct ListNode* fast = head;
 
     while (fast != NULL && fast->next != NULL) {
-        slow = slow->next;        // moves 1 step
-        fast = fast->next->next;  // moves 2 steps
+        slow = slow->next;        
+        fast = fast->next->next;  
     }
 
     return slow->val;  // slow is at the middle

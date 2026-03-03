@@ -17,12 +17,12 @@ bool hasCycle(struct ListNode *head) {
     struct ListNode* fast = head;
 
     while (fast != NULL && fast->next != NULL) {
-        slow = slow->next;        // moves 1 step
-        fast = fast->next->next;  // moves 2 steps
+        slow = slow->next;        
+        fast = fast->next->next;  
 
-        if (slow == fast)         // they met — cycle exists
+        if (slow == fast)         
             return true;
     }
 
-    return false;  // fast hit NULL — no cycle
+    return false; 
 }

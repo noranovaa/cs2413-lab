@@ -21,12 +21,12 @@ struct ListNode* swapPairs(struct ListNode* head) {
         struct ListNode* a = prev->next;       // first node
         struct ListNode* b = prev->next->next; // second node
 
-        a->next = b->next;  // a points past b
-        b->next = a;        // b points to a
-        prev->next = b;     // prev points to b (new front of pair)
+        a->next = b->next;  
+        b->next = a;        
+        prev->next = b;     
 
-        prev = a;           // move prev to a (now behind next pair)
-    }
+        prev = a;           
 
     return dummy.next;
+}
 }
