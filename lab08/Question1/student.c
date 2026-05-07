@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 /*
 Question 1: Longest Common Prefix
 
@@ -22,6 +22,16 @@ IMPORTANT:
 */
 
 char* longestCommonPrefix(char** strs, int strsSize) {
-      // TODO: implement
+    if (strsSize == 0) return "";
 
+    for (int i = 1; i < strsSize; i++) {
+        int j = 0;
+
+        while (strs[0][j] != '\0' && strs[i][j] != '\0' && strs[0][j] == strs[i][j])
+            j++;
+
+        strs[0][j] = '\0'; 
+    }
+
+    return strs[0];
 }
