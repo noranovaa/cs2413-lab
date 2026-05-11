@@ -17,7 +17,7 @@ int isSorted(int arr[], int size) {
     return 1;
 }
 
-// ── Q4: Insertion Sort ───────────────────────────────────────────────────────
+//Q4: Insertion Sort
 void insertionSort(int arr[], int left, int right) {
     for (int i = left + 1; i <= right; i++) {
         int key = arr[i];
@@ -30,7 +30,7 @@ void insertionSort(int arr[], int left, int right) {
     }
 }
 
-// ── Q5: Selection Sort ───────────────────────────────────────────────────────
+//Q5: Selection Sort 
 void selectionSort(int arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         int minIdx = i;
@@ -43,7 +43,7 @@ void selectionSort(int arr[], int size) {
     }
 }
 
-// ── Q7.3: Hybrid Merge + Insertion Sort ─────────────────────────────────────
+// Q7.3: Hybrid Merge + Insertion Sort
 void merge(int arr[], int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -75,18 +75,16 @@ void hybridMergeSort(int arr[], int left, int right, int k) {
     merge(arr, left, mid, right);
 }
 
-// ── Helper ───────────────────────────────────────────────────────────────────
 void copyArray(int src[], int dst[], int size) {
     for (int i = 0; i < size; i++) dst[i] = src[i];
 }
 
-// ── Main ─────────────────────────────────────────────────────────────────────
 int main() {
     int original[] = {39, 9, 81, 45, 90, 27, 72, 18};
     int size = sizeof(original) / sizeof(original[0]);
     int arr[size];
 
-    // Q4 — Insertion Sort
+
     copyArray(original, arr, size);
     printf("Q4 Insertion Sort:\n");
     printf("  Before: "); printArray(arr, size);
@@ -94,7 +92,7 @@ int main() {
     printf("  After:  "); printArray(arr, size);
     printf("  Result: %s\n\n", isSorted(arr, size) ? "PASS" : "FAIL");
 
-    // Q5 — Selection Sort
+
     copyArray(original, arr, size);
     printf("Q5 Selection Sort:\n");
     printf("  Before: "); printArray(arr, size);
@@ -102,7 +100,7 @@ int main() {
     printf("  After:  "); printArray(arr, size);
     printf("  Result: %s\n\n", isSorted(arr, size) ? "PASS" : "FAIL");
 
-    // Q7.3 — Hybrid Merge + Insertion Sort
+    
     copyArray(original, arr, size);
     int k = 3;
     printf("Q7.3 Hybrid Merge+Insertion Sort (k=%d):\n", k);
